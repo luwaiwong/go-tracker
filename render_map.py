@@ -64,13 +64,14 @@ def get_trains():
                 stop_id = info["stop_id"]
                 
                 # Add info
-                lats.append(position["latitude"])
-                lons.append(position["longitude"])
-                names.append(name)
                 if (stop_id.isdigit()):
+                    # continue
                     types.append("bus")
                 else:
                     types.append("train")
+                lats.append(position["latitude"])
+                lons.append(position["longitude"])
+                names.append(name)
         else:
             print('Error:', response.status_code)
     except requests.exceptions.RequestException as e:
@@ -131,7 +132,7 @@ def update_map(n, prev_figure):
         hover_name='Name',
         zoom=DEFAULT_ZOOM,
         center=DEFAULT_CENTER,
-        color = 'Type'
+        color = 'Type',
     )
 
     # Preserve previous zoom and center if available
