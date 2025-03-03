@@ -65,7 +65,7 @@ def get_trains():
                 
                 # Add info
                 if (stop_id.isdigit()):
-                    # continue
+                    if (SHOW_ONLY_TRAINS): continue
                     types.append("bus")
                 else:
                     types.append("train")
@@ -146,7 +146,7 @@ def update_map(n, prev_figure):
 
     fig.update_layout(
         mapbox_style="open-street-map",
-        title='Real-Time Updating Map'
+        title='Live Go Train Positions'
     )
 
     return fig
